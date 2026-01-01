@@ -8,11 +8,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     private Rigidbody2D rb;
     private Transform checkPoint;
+    private EnemyHealth enemyHealth;
     private int index = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     void Start()
@@ -23,14 +25,18 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(index >= EnemyManager.main.checkPoints.Length)
+        {
+            Debug.Log("killing enemy");
+            enemyHealth.Die();
+            return;
+        }
         checkPoint = EnemyManager.main.checkPoints[index];
+        
+        // Debug.Log("wave index "+ index);
         if(Vector2.Distance(checkPoint.transform.position, gameObject.transform.position)<= 0.1f)
         {
             index++;
-            if(index >= EnemyManager.main.checkPoints.Length)
-            {
-                Destroy(gameObject);
-            }
         }
     }
 
