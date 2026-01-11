@@ -3,18 +3,35 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 public class Plant : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float fireRate;
     private float timeUntilFire;
     [SerializeField] private List<Enemy> inRange = new List<Enemy>();
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+    
+    public  enum PlacementState{
+        Placing,
+        Placed,
+        Cancelled
     }
+    PlacementState state;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
+    {
+        state = PlacementState.Placing;
+    }
+
+    public void FollowMouse()
+    {
+        UnityEngine.Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
+        UnityEngine.Vector3 worldPos  = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
+        worldPos.z = 0;
+        transform.position = worldPos;
+    }
+
     // get the collider of the plant
     // on trigger, instatiate and apply force vector in that direction from the origin
     //
@@ -58,8 +75,8 @@ public class Plant : MonoBehaviour
         }
         
     }
-    // Update is called once per frame
-    void Update()
+
+    void FiringActive()
     {
         timeUntilFire += Time.deltaTime;
         if (timeUntilFire > fireRate)
@@ -70,6 +87,37 @@ public class Plant : MonoBehaviour
                 timeUntilFire = 0;
             }
             
+        }
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        // Active 
+
+        switch (state)
+        {
+            case PlacementState.Placing:
+                // code when state == Placing
+                FollowMouse();
+                // if u click
+                if (Mouse.current.leftButton.wasPressedThisFrame)
+                {
+                    state = PlacementState.Placed;
+                }else if (Mouse.current.rightButton.wasPressedThisFrame)
+                {
+                    state = PlacementState.Cancelled;
+                }
+                break;
+
+            case PlacementState.Placed:
+                // code when state == Placed
+                FiringActive();
+                break;
+
+            case PlacementState.Cancelled:
+                // code when state == Cancelled
+                Destroy(gameObject);
+                break; 
         }
     }
 }

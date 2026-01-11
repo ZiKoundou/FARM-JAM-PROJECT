@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
 {
     [Header("Bullet Parameters")]
     [SerializeField] private float bulletSpeed;
+    [SerializeField] private float bulletDamage;
     [SerializeField] private Transform target; 
     private Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,5 +26,15 @@ public class Bullet : MonoBehaviour
 
         //set rigid body speed
         rb.linearVelocity = direction * bulletSpeed;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision){
+        Debug.Log("hit");
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
+            enemy.TakeDamage(bulletDamage);
+            Destroy(gameObject);
+        }
     }
 }
