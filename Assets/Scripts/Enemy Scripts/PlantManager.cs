@@ -18,11 +18,15 @@ public class PlantManager : MonoBehaviour
     public void Pick()
     {
         Instantiate(plant);
-        // by default should be placing on instatiation
 
+        // by default should be placing on instatiation
+    
     }
 
-
+    public void AddToList(Plant plant)
+    {
+        placed.Add(plant);
+    }
     // Update is called once per frame
     void Update()
     {

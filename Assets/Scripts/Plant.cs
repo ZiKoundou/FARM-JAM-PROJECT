@@ -5,13 +5,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+using System;
 public class Plant : MonoBehaviour
 {
+    [Header("Plant Attributes")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float fireRate;
+    [SerializeField] private GameObject plantManagerGameobject;
+    private PlantManager plantManager;
     private float timeUntilFire;
     [SerializeField] private List<Enemy> inRange = new List<Enemy>();
-    
+    //turn off range outline
+    private SpriteRenderer rangeOutine;
     public  enum PlacementState{
         Placing,
         Placed,
@@ -22,6 +27,8 @@ public class Plant : MonoBehaviour
     void Awake()
     {
         state = PlacementState.Placing;
+        rangeOutine = GetComponentInChildren<SpriteRenderer>();
+        plantManager = plantManagerGameobject.GetComponent<PlantManager>();
     }
 
     public void FollowMouse()
@@ -103,6 +110,10 @@ public class Plant : MonoBehaviour
                 if (Mouse.current.leftButton.wasPressedThisFrame)
                 {
                     state = PlacementState.Placed;
+                    rangeOutine.enabled = false;
+                    //add to list
+                    plantManager.AddToList()
+                    
                 }else if (Mouse.current.rightButton.wasPressedThisFrame)
                 {
                     state = PlacementState.Cancelled;
