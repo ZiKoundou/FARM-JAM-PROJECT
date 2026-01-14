@@ -25,6 +25,8 @@ public class EnemySpawner : MonoBehaviour
     public Transform[] spawnPoints;
     public Wave[] waves;
 
+    private bool playWave = false;
+    private bool autoPlay = false;
     private int enemiesRemaining;
 
     [SerializeField] GameObject spawnParticles;
@@ -42,10 +44,19 @@ public class EnemySpawner : MonoBehaviour
             Debug.Log("on wave: " + waves[i].waveName);
             for (int j = 0; j <= waves[i].enemies.Length - 1; j++)
             {
+                // spawn the next wave and set play back to 0
+                playWave = false;
                 enemiesRemaining = waves[i].enemies[j].count;
                 //iterate and spawn the enemies in each wave
                 for (int k = 0; k < waves[i].enemies[j].count; k++)
                 {
+                    // if autoplay is not on...
+                    if(autoPlay != true)
+                    {
+                        //wait until play is pressed
+                        yield return new WaitUntil(() => playWave);
+                    }
+                    //else just continue the next wave
                     
                     //acwuire a rando spawn point
                     Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
@@ -60,11 +71,29 @@ public class EnemySpawner : MonoBehaviour
                     yield return new WaitForSeconds(waves[i].enemies[j].timeBetweenSpawns);
                 }
                 yield return new WaitUntil(() => enemiesRemaining <= 0);
-                yield return new WaitForSeconds(waves[i].timeBetweenWaves);
+
+                
             }
         }
     }
+    public void AutoPlay()
+    {
+        if(autoPlay != true)
+        {
+            autoPlay = true;
+        }
+        else
+        {
+            autoPlay = false;
+        }
+    }
 
+    
+
+    public void Play()
+    {
+        playWave = true;
+    }
     private void OnEnable()  => EnemyHealth.OnEnemyDied += HandleEnemyDeath;
     private void OnDisable() => EnemyHealth.OnEnemyDied -= HandleEnemyDeath;
 
