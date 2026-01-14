@@ -25,8 +25,10 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if u reach the end of the level
         if(index >= EnemyManager.main.checkPoints.Length)
         {
+            //for now just kill the enemy
             Debug.Log("killing enemy");
             enemyHealth.Die();
             return;
