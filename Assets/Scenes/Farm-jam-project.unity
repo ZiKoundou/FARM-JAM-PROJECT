@@ -1074,7 +1074,6 @@ MonoBehaviour:
       count: 5
       timeBetweenSpawns: 0.5
     timeBetweenWaves: 0.5
-  plantManager: {fileID: 1931167805}
   spawnParticles: {fileID: 0}
 --- !u!1 &895398440
 GameObject:
@@ -4600,7 +4599,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlantManager
   placed: []
-  plant: {fileID: 7315617497236404125, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+  plants:
+  - {fileID: 7315617497236404125, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
 --- !u!4 &1931167806
 Transform:
   m_ObjectHideFlags: 0

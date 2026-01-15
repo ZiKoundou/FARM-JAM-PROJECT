@@ -32,8 +32,5 @@ public class PlantSelection : MonoBehaviour
         rangeOutine.enabled = isSelected;
     }
 
-    private void OuseDown()
-    {
-        
-    }
+
 }
