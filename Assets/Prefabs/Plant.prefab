@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4695437552657178419}
   - component: {fileID: 7822611648950826831}
+  - component: {fileID: 3853691064042465138}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5774861748817019565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -91,6 +92,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &3853691064042465138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5774861748817019565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74b6d28d4f9a5c4fa2807ebb17c47b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlantSelection
 --- !u!1 &7315617497236404125
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,9 +114,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4569513321085723020}
   - component: {fileID: 7832236092672571310}
-  - component: {fileID: 5480931504170970373}
   - component: {fileID: 1973976730041875143}
   - component: {fileID: 2744420631073787409}
+  - component: {fileID: 7884533570840748349}
   m_Layer: 0
   m_Name: Plant
   m_TagString: Untagged
@@ -120,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 7315617497236404125}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -186,21 +199,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &5480931504170970373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7315617497236404125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a596f55cbb1900c43a875812c4f40fce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Plant
-  bulletPrefab: {fileID: 1042915400390421904, guid: b360bedb0138a9d40bb0ca66c9ac3478, type: 3}
-  fireRate: 0.5
-  inRange: []
 --- !u!58 &1973976730041875143
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -235,8 +233,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 4
+  m_Offset: {x: 0, y: -0.5}
+  m_Radius: 3
 --- !u!114 &2744420631073787409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,4 +247,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966bca06171a2c249957f3f11e3f5e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlantPlacement
-  rangeOutine: {fileID: 7822611648950826831}
+--- !u!114 &7884533570840748349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315617497236404125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17f75ab860247f4cb9e851558ebdb9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShooterPlant
+  stages:
+  - name: Sunflower Sprout
+    sprite: {fileID: 4043642541821735616, guid: 1bf93361d1b81c44abb816a16aba58e6, type: 3}
+    damage: 0
+    fireRate: 1
+    range: 1
+    projectilePrefab: {fileID: 1042915400390421904, guid: b360bedb0138a9d40bb0ca66c9ac3478, type: 3}
+    growthRequired: 2
+  - name: SunFlower Sapling
+    sprite: {fileID: -9052118876764595399, guid: 1bf93361d1b81c44abb816a16aba58e6, type: 3}
+    damage: 0
+    fireRate: 0.5
+    range: 2
+    projectilePrefab: {fileID: 1042915400390421904, guid: b360bedb0138a9d40bb0ca66c9ac3478, type: 3}
+    growthRequired: 10
+  - name: SunFlower Sapling
+    sprite: {fileID: -7542830042216394626, guid: 1bf93361d1b81c44abb816a16aba58e6, type: 3}
+    damage: 0
+    fireRate: 0.5
+    range: 2
+    projectilePrefab: {fileID: 1042915400390421904, guid: b360bedb0138a9d40bb0ca66c9ac3478, type: 3}
+    growthRequired: 10
+  - name: SunFlower Sapling
+    sprite: {fileID: -1090229813410831752, guid: 1bf93361d1b81c44abb816a16aba58e6, type: 3}
+    damage: 0
+    fireRate: 0.5
+    range: 2
+    projectilePrefab: {fileID: 1042915400390421904, guid: b360bedb0138a9d40bb0ca66c9ac3478, type: 3}
+    growthRequired: 10
+  growthProgress: 0

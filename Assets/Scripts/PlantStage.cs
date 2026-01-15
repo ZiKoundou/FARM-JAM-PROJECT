@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlantStage
 {
+    public string name;
     public Sprite sprite;
     [Header("Stats")]
     public float damage;

@@ -2,7 +2,15 @@ using System.Collections.Generic;
 using UnityEngine;
 public class ShooterPlant : Plant
 {
+
     private List<Enemy> inRange = new List<Enemy>();
+    private float damage;
+    private float fireRate;
+    private float attackRange;
+    private GameObject projectilePrefab;
+    private float timeUntilFire;
+    #region Enemy Detection
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         // if not an enemy, ignore
@@ -32,10 +40,11 @@ public class ShooterPlant : Plant
             inRange.Remove(enemy);
         }
     }
-
+    #endregion
+    #region Shooting bullets
     public void Shoot(Enemy enemy)
     {
-        GameObject bulletObject =  Instantiate(stages[currentStageIndex].projectilePrefab, gameObject.transform);
+        GameObject bulletObject =  Instantiate(projectilePrefab, gameObject.transform);
         Bullet bullet = bulletObject.GetComponent<Bullet>();
         if (bullet != null)
         {
@@ -43,7 +52,8 @@ public class ShooterPlant : Plant
         }
         
     }
-
+    #endregion
+    #region Fire Timing
     void FiringActive()
     {
         timeUntilFire += Time.deltaTime;
@@ -57,12 +67,32 @@ public class ShooterPlant : Plant
             
         }
     }
-    // Update is called once per frame
+    #endregion
+    #region Unity Callbacks
     void Update()
     {
         // Active 
         if(!isPlaced) return;
         FiringActive();
     }
+    #endregion
+    #region Applying stats
+    protected override void OnStageApplied()
+    {
+        // Apply the current stage's stats to this plant
+        damage = stages[currentStageIndex].damage; //no sure i need this because the damage is already on the bullet lowkey...
+        fireRate = stages[currentStageIndex].fireRate;
+        attackRange = stages[currentStageIndex].range;
 
+        // Update the collider radius
+        CircleCollider2D collider = GetComponent<CircleCollider2D>();
+        if(collider != null)
+        {
+            collider.radius = attackRange;
+        }
+
+        // Update projectile prefab if it changes per stage
+        projectilePrefab = stages[currentStageIndex].projectilePrefab;
+    }
+    #endregion
 }

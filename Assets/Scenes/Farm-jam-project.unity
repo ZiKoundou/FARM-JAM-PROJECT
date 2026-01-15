@@ -1074,6 +1074,7 @@ MonoBehaviour:
       count: 5
       timeBetweenSpawns: 0.5
     timeBetweenWaves: 0.5
+  plantManager: {fileID: 1931167805}
   spawnParticles: {fileID: 0}
 --- !u!1 &895398440
 GameObject:
@@ -4449,7 +4450,7 @@ GameObject:
   - component: {fileID: 1791171124}
   - component: {fileID: 1791171123}
   m_Layer: 5
-  m_Name: Button
+  m_Name: SunFLower button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

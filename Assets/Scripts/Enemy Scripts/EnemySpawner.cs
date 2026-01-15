@@ -28,7 +28,6 @@ public class EnemySpawner : MonoBehaviour
     private bool playWave = false;
     private bool autoPlay = false;
     private int enemiesRemaining;
-
     [SerializeField] GameObject spawnParticles;
 
     void Start()
@@ -44,6 +43,7 @@ public class EnemySpawner : MonoBehaviour
             Debug.Log("on wave: " + waves[i].waveName);
             for (int j = 0; j <= waves[i].enemies.Length - 1; j++)
             {
+                
                 // spawn the next wave and set play back to 0
                 playWave = false;
                 enemiesRemaining = waves[i].enemies[j].count;
@@ -57,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
                         yield return new WaitUntil(() => playWave);
                     }
                     //else just continue the next wave
-                    
+
                     //acwuire a rando spawn point
                     Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
                     //spawn warning spawnParticles effect before enemy spawns
@@ -71,6 +71,8 @@ public class EnemySpawner : MonoBehaviour
                     yield return new WaitForSeconds(waves[i].enemies[j].timeBetweenSpawns);
                 }
                 yield return new WaitUntil(() => enemiesRemaining <= 0);
+                //once enemies are defeated grow the plants
+                PlantManager.instance.GrowAll();
 
                 
             }

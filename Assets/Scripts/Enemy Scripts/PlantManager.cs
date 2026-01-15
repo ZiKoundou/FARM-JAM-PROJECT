@@ -5,12 +5,21 @@ using UnityEngine;
 
 public class PlantManager : MonoBehaviour
 {
+    public static PlantManager instance;
     [SerializeField] private List<Plant> placed = new List<Plant>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private GameObject plant;
-    void Start()
+    void Awake()
     {
-        
+        if (instance == null)
+        {
+            instance = this;  // set the instance
+            DontDestroyOnLoad(gameObject); // optional: persist across scenes
+        }
+        else
+        {
+            Destroy(gameObject); // only allow one
+        }
     }
     // function that adds to list after placing
     // function that removes from list after harvest
@@ -26,6 +35,15 @@ public class PlantManager : MonoBehaviour
     public void AddToList(Plant plant)
     {
         placed.Add(plant);
+    }
+
+    public void GrowAll()
+    {
+        //loop through each and aaddgrowth
+        foreach (Plant p in placed)
+        {
+            p.AddGrowth(1);
+        }
     }
     // Update is called once per frame
     void Update()
