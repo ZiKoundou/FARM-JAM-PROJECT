@@ -8,7 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     private Rigidbody2D rb;
     private Transform checkPoint;
-    private EnemyHealth enemyHealth;
+
+    [HideInInspector] public EnemyHealth enemyHealth;
     private int index = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -30,7 +31,7 @@ public class Enemy : MonoBehaviour
         {
             //for now just kill the enemy
             Debug.Log("killing enemy");
-            enemyHealth.Die();
+            enemyHealth.health.Die();
             return;
         }
         checkPoint = EnemyManager.main.checkPoints[index];

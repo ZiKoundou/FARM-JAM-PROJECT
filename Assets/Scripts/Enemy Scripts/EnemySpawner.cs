@@ -96,9 +96,14 @@ public class EnemySpawner : MonoBehaviour
     {
         playWave = true;
     }
-    private void OnEnable()  => EnemyHealth.OnEnemyDied += HandleEnemyDeath;
-    private void OnDisable() => EnemyHealth.OnEnemyDied -= HandleEnemyDeath;
+    // subscribes to the event on enemydied
+    private void OnEnable()  => EnemyHealth.OnEnemyDeath += HandleEnemyDeath;
 
+    // unsubsubscribes to the event on enemydied
+    private void OnDisable() => EnemyHealth.OnEnemyDeath -= HandleEnemyDeath;
+
+
+    //when the onenemy died is called, this function is called
     private void HandleEnemyDeath()
     {
         enemiesRemaining--;

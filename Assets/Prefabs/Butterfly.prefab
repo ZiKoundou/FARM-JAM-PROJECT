@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8350493712308570794}
   - component: {fileID: 3047180354755576302}
   - component: {fileID: 1585369945498585377}
-  - component: {fileID: 3225931679826332987}
+  - component: {fileID: 4239800510101688038}
   - component: {fileID: 1980983578696582924}
+  - component: {fileID: 3225931679826332987}
   - component: {fileID: 8703406507270338438}
   m_Layer: 0
   m_Name: Butterfly
@@ -38,6 +39,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3047180354755576302
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -83,6 +85,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 740628756080914756, guid: d4a8dbaff760db643b77a9408e2c204e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +95,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1585369945498585377
 MonoBehaviour:
@@ -107,6 +109,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 2
+  enemyHealth: {fileID: 0}
+--- !u!114 &4239800510101688038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6905430294259363763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8942ce3edc045ec4897f5996dc3c16ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 2
+--- !u!114 &1980983578696582924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6905430294259363763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37f510e57e153142ab78a3804c80d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  health: {fileID: 0}
+  deathParticles: {fileID: 0}
+  OnEnemyDamagedUnity:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnemyDeathUnity:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &3225931679826332987
 Rigidbody2D:
   serializedVersion: 5
@@ -134,20 +170,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1980983578696582924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6905430294259363763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c37f510e57e153142ab78a3804c80d82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  health: 1
-  deathParticles: {fileID: 0}
 --- !u!61 &8703406507270338438
 BoxCollider2D:
   m_ObjectHideFlags: 0

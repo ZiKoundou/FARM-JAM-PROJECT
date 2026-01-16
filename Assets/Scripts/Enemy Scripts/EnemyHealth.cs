@@ -1,38 +1,37 @@
- using UnityEngine;
+using UnityEngine;
+using UnityEngine.Events;
 using System;
 public class EnemyHealth : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] float health = 1;
+    [HideInInspector] public Health health;
     [SerializeField] GameObject deathParticles;
-    public static event Action OnEnemyDied;
-    void Start()
+    public static event Action OnEnemyDeath;
+    public UnityEvent OnEnemyDamagedUnity;
+    public UnityEvent OnEnemyDeathUnity;
+
+    private void OnEnable()
     {
-        
+        health = GetComponent<Health>();
+        health.OnDamaged += HandleDamaged;
+        health.OnDeath += HandleDeath;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
+        health.OnDamaged -= HandleDamaged;
+        health.OnDeath -= HandleDeath;
     }
-
-    public void Die()
+    public void HandleDamaged()
     {
-        // do death stuff...
-        OnEnemyDied?.Invoke();
+        OnEnemyDamagedUnity?.Invoke();
+    }
+    public void HandleDeath()
+    {
+        Debug.Log("enemy death event");
+        OnEnemyDeath?.Invoke();
+        OnEnemyDeathUnity?.Invoke();
         Destroy(gameObject);
     }
-    public void TakeDamage(float amount)
-    {
-        health -= amount;
-        if(health <= 0)
-        {
-            if(deathParticles != null)
-            {
-                Instantiate(deathParticles, gameObject.transform.position, Quaternion.identity);
-            }
-            
-            Die();
-        }
-    }
+
 }
