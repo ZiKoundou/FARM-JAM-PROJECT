@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     private Rigidbody2D rb;
     private Transform checkPoint;
+    [SerializeField] private float enemyDamage = 1;
 
     [HideInInspector] public EnemyHealth enemyHealth;
     private int index = 0;
@@ -49,5 +50,15 @@ public class Enemy : MonoBehaviour
         // get the direction by subtracting the position of the checkpoint and the position of the enemy
         Vector2 direction = (checkPoint.position - transform.position).normalized;
         rb.linearVelocity = direction * moveSpeed;
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("gideon");
+        if (other.gameObject.CompareTag("MotherPlant"))
+        {
+            Debug.Log("fart mster");
+            MotherHealth mother = other.gameObject.GetComponent<MotherHealth>();
+            mother.health.TakeDamage(enemyDamage);
+        }
     }
 }

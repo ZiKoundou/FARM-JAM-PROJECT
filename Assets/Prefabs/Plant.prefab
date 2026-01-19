@@ -273,19 +273,19 @@ MonoBehaviour:
     fireRate: 0.5
     range: 2
     projectilePrefab: {fileID: 1042915400390421904, guid: b360bedb0138a9d40bb0ca66c9ac3478, type: 3}
-    growthRequired: 10
+    growthRequired: 4
   - name: SunFlower Sapling
     sprite: {fileID: -7542830042216394626, guid: 1bf93361d1b81c44abb816a16aba58e6, type: 3}
     damage: 0
-    fireRate: 0.5
-    range: 2
+    fireRate: 0.25
+    range: 4
     projectilePrefab: {fileID: 1042915400390421904, guid: b360bedb0138a9d40bb0ca66c9ac3478, type: 3}
-    growthRequired: 10
+    growthRequired: 8
   - name: SunFlower Sapling
     sprite: {fileID: -1090229813410831752, guid: 1bf93361d1b81c44abb816a16aba58e6, type: 3}
     damage: 0
-    fireRate: 0.5
-    range: 2
+    fireRate: 0.1
+    range: 4
     projectilePrefab: {fileID: 1042915400390421904, guid: b360bedb0138a9d40bb0ca66c9ac3478, type: 3}
-    growthRequired: 10
+    growthRequired: 16
   growthProgress: 0

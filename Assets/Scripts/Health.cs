@@ -35,6 +35,7 @@ public class Health : MonoBehaviour
         OnHealed?.Invoke();
         
     }
+    
     public void Die()
     {
         Debug.Log("invoking the death event");
