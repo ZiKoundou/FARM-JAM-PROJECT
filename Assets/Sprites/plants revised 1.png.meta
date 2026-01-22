@@ -242,9 +242,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 286
-        width: 35
-        height: 31
+        y: 287
+        width: 34
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,8 +439,8 @@ TextureImporter:
       name: plants revised 1_9
       rect:
         serializedVersion: 2
-        x: 121
-        y: 214
+        x: 124
+        y: 211
         width: 104
         height: 89
       alignment: 0
@@ -1271,6 +1271,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: plants revised 1_47
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5099332b1c4979048acb30896bc21fa2
+      internalID: -452373442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1327,6 +1349,7 @@ TextureImporter:
       plants revised 1_44: 4503422513275744639
       plants revised 1_45: -6336321416586154645
       plants revised 1_46: 3714356408545142481
+      plants revised 1_47: -452373442
       plants revised 1_5: -6310666437664702965
       plants revised 1_6: -1684184614072293144
       plants revised 1_7: -5871361639599119746
