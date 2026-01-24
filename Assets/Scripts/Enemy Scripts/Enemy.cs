@@ -61,4 +61,10 @@ public class Enemy : MonoBehaviour
             mother.health.TakeDamage(enemyDamage);
         }
     }
+    
+    //wen under an effect
+    //startcoroutine 
+    //while its under effect do the do ie slow 
+    //exit will set back to normal speed
+
 }

@@ -26,14 +26,20 @@ public class PlantManager : MonoBehaviour
     // function that grows all plants from list
 
     //function for each type of plant 
-    public void Pick()
+    public void PickSunFlower()
     {
         Instantiate(plants[0]);
 
         // by default should be placing on instatiation
     
     }
+    public void PickAoeFlower()
+    {
+        Instantiate(plants[1]);
 
+        // by default should be placing on instatiation
+    
+    }
     public void AddToList(Plant plant)
     {
         placed.Add(plant);
