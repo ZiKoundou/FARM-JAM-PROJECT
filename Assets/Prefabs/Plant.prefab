@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4695437552657178419}
   - component: {fileID: 7822611648950826831}
-  - component: {fileID: 3853691064042465138}
+  - component: {fileID: 3150247798635087554}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &3853691064042465138
+--- !u!114 &3150247798635087554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

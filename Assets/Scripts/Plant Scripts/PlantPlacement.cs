@@ -29,14 +29,12 @@ public class PlantPlacement : MonoBehaviour
             case PlacementState.Placing:
                 // code when state == Placing
                 FollowMouse();
-                plantSelection.Select();
+                PlantSelectionManager.instance.SelectPlant(currentPlant);
                 // if u click
-                if (Mouse.current.leftButton.wasPressedThisFrame)
+                if (Mouse.current.leftButton.wasPressedThisFrame)// and check if valid
                 {
                     state = PlacementState.Placed;
-                    plantSelection.Deselect();
 
-                    
                 }else if (Mouse.current.rightButton.wasPressedThisFrame)
                 {
                     state = PlacementState.Cancelled;
@@ -54,7 +52,12 @@ public class PlantPlacement : MonoBehaviour
                 break; 
         }
     }
-
+    // void OnMouseDown()
+    // {
+    //     //if clicked and placed then select it
+    //     if(state == PlacementState.Placing) return;
+    //     PlantSelectionManager.instance.SelectPlant(currentPlant);
+    // }
     void FollowMouse()
     {
         UnityEngine.Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();

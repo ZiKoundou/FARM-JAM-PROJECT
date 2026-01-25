@@ -15,4 +15,5 @@ public class PlantStage
 
     [Header("Growth")]
     public float growthRequired;
+    
 }

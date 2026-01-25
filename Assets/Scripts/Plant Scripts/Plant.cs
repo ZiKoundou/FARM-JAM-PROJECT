@@ -69,6 +69,6 @@ public abstract class Plant : MonoBehaviour
         isPlaced = true;
         PlantManager.instance.AddToList(gameObject.GetComponent<Plant>());
     }
-
+    
     #endregion
 }

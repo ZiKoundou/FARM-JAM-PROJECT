@@ -23,6 +23,11 @@ public class PlantSelection : MonoBehaviour
 
     }
 
+    // public void ShowRange()
+    // {
+    //     rangeOutine.enabled = true;
+    // }
+
     public void Deselect()
     {
         //turn off sprite render

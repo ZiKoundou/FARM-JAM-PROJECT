@@ -53,10 +53,10 @@ public class Enemy : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("gideon");
+        // Debug.Log("gideon");
         if (other.gameObject.CompareTag("MotherPlant"))
         {
-            Debug.Log("fart mster");
+            // Debug.Log("fart mster");
             MotherHealth mother = other.gameObject.GetComponent<MotherHealth>();
             mother.health.TakeDamage(enemyDamage);
         }

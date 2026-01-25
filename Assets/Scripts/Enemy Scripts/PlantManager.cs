@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
 
 
@@ -9,6 +8,7 @@ public class PlantManager : MonoBehaviour
     [SerializeField] private List<Plant> placed = new List<Plant>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private GameObject[] plants;
+    Vector3 spawnPos = new Vector3(100f, 100f, 1f); // off-screen coordinates
     void Awake()
     {
         if (instance == null)
@@ -28,8 +28,9 @@ public class PlantManager : MonoBehaviour
     //function for each type of plant 
     public void PickSunFlower()
     {
-        Instantiate(plants[0]);
-
+        
+        
+        Instantiate(plants[0], spawnPos, Quaternion.identity);
         // by default should be placing on instatiation
     
     }
