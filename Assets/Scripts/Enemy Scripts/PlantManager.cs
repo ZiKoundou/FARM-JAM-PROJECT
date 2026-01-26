@@ -29,15 +29,21 @@ public class PlantManager : MonoBehaviour
     public void PickSunFlower()
     {
         
-        
+        if(CurrencyManager.instance.TryBuy(plants[0].GetComponent<Plant>().Cost) == false){
+            Debug.Log("Not enough currency to buy plant");
+            return;
+        }
         Instantiate(plants[0], spawnPos, Quaternion.identity);
         // by default should be placing on instatiation
     
     }
     public void PickAoeFlower()
     {
-        Instantiate(plants[1]);
-
+        if(CurrencyManager.instance.TryBuy(plants[1].GetComponent<Plant>().Cost) == false){
+            Debug.Log("Not enough currency to buy plant");
+            return;
+        }
+        Instantiate(plants[1], spawnPos, Quaternion.identity);
         // by default should be placing on instatiation
     
     }

@@ -16,7 +16,7 @@ public class PlantSelection : MonoBehaviour
     {
         //turn on sprite render
         if(isSelected) return;
-        gameObject.transform.localScale = new Vector3(2*currentPlant.Range,2*currentPlant.Range,1);
+        // gameObject.transform.localScale = new Vector3(2*currentPlant.Range,2*currentPlant.Range,1);
         isSelected = true;
         rangeOutine.enabled = isSelected;
         
@@ -32,7 +32,7 @@ public class PlantSelection : MonoBehaviour
     {
         //turn off sprite render
         if(!isSelected) return;
-        gameObject.transform.localScale = new Vector3(2*currentPlant.Range,2*currentPlant.Range,1);
+        // gameObject.transform.localScale = new Vector3(2*currentPlant.Range,2*currentPlant.Range,1);
         isSelected = false;
         rangeOutine.enabled = isSelected;
     }

@@ -17,6 +17,10 @@ public abstract class Plant : MonoBehaviour
     protected PlantStage CurrentStage => stages[currentStageIndex];
     protected bool isPlaced; 
     protected float range;
+    [SerializeField] protected float cost;
+    public float Cost => cost;
+
+    protected List<Enemy> inRange = new List<Enemy>();
     public float Range => range;
     
     #endregion
@@ -50,7 +54,21 @@ public abstract class Plant : MonoBehaviour
         ApplyStage(); //apply the stat changes etc.
     }
     #endregion
+    public void AddEnemyToList(Enemy enemy)
+    {
+        if (!inRange.Contains(enemy))
+        {
+            inRange.Add(enemy);
+        }
+    }
 
+    public void RemoveEnemyFromList(Enemy enemy){
+        //remove it from the list to a list
+        if (inRange.Contains(enemy))
+        {
+            inRange.Remove(enemy);
+        }
+    }
 
     #region Overridable Base Methods
     protected virtual void ApplyStage()

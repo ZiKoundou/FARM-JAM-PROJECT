@@ -1,37 +1,48 @@
 using UnityEngine;
 using System;
-
+using TMPro;
+using Unity.VisualScripting;
 public class CurrencyManager : MonoBehaviour
 {
+    public static CurrencyManager instance;
+    [SerializeField] private TextMeshProUGUI currencyText;
     [SerializeField] private float startingGold;
-    private float currentGold;
+    private float money;
     [SerializeField] private float roundGold;//amount to increase each round
-    private float noDamageBonus;//bonus if no damage on mother plant
+   [SerializeField] private float noDamageBonus;//bonus if no damage on mother plant
 
     void Awake()
     {
-       currentGold = startingGold; 
+        money = startingGold; 
+        instance = this;
+        UpdateUI();
     }
     public bool TryBuy(float amount)
     {
-        if(currentGold > amount)
-        {
-            currentGold = MathF.Max(currentGold-amount, 0);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+        if(money < amount)return false;//cant buy
+        money = MathF.Max(money-amount, 0);
+        UpdateUI();
+        return true;
 
+    }
+    public void AddMoney(int amount)
+    {
+        money += amount;
+        UpdateUI();
+    }
     public void EndOfRoundGold()
     {
-        currentGold += roundGold;
+        AddMoney((int)roundGold);
     }
+
     public void EndOfRoundBonus()
     {
-        currentGold += noDamageBonus;
+        AddMoney((int)noDamageBonus);
+    }
+
+    void UpdateUI()
+    {
+        currencyText.text = $"$ {money.ToString("0")}";
     }
 }
 

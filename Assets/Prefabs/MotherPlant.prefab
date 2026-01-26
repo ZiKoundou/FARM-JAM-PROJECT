@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
   currentHealth: 0
+  FloatingTextPrefab: {fileID: 5585371147343533350, guid: 43307eb23c40dda429504ee52958ea2c, type: 3}
 --- !u!114 &1760800096597728179
 MonoBehaviour:
   m_ObjectHideFlags: 0

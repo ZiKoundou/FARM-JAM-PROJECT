@@ -56,11 +56,13 @@ public class EnemySpawner : MonoBehaviour
                         //wait until play is pressed
                         yield return new WaitUntil(() => playWave);
                     }
+                    //until playwave is true
                     //else just continue the next wave
-
+                    WorldLight.instance.NightTransition();
                     //acwuire a rando spawn point
                     Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
                     //spawn warning spawnParticles effect before enemy spawns
+                    yield return new WaitUntil(() => !WorldLight.instance.GetTransition());
                     if(spawnParticles != null){
                         Instantiate(spawnParticles, spawnPoint);
                     }
@@ -73,6 +75,11 @@ public class EnemySpawner : MonoBehaviour
                 yield return new WaitUntil(() => enemiesRemaining <= 0);
                 //once enemies are defeated grow the plants
                 PlantManager.instance.GrowAll();
+                //add gold
+                CurrencyManager.instance.EndOfRoundGold();
+                yield return new WaitForSeconds(0.5f);
+                //change to daylight
+                WorldLight.instance.DayTransition();
 
                 
             }

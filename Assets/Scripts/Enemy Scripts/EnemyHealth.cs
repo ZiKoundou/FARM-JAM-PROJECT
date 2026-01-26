@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using TMPro;
 public class EnemyHealth : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -9,7 +10,6 @@ public class EnemyHealth : MonoBehaviour
     public static event Action OnEnemyDeath;
     public UnityEvent OnEnemyDamagedUnity;
     public UnityEvent OnEnemyDeathUnity;
-
     private void OnEnable()
     {
         health = GetComponent<Health>();
@@ -25,6 +25,7 @@ public class EnemyHealth : MonoBehaviour
     public void HandleDamaged()
     {
         OnEnemyDamagedUnity?.Invoke();
+        
     }
     public void HandleDeath()
     {

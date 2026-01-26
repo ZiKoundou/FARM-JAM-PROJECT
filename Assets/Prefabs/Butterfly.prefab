@@ -210,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 2
   currentHealth: 0
+  FloatingTextPrefab: {fileID: 1939216404834314601, guid: e046a65bd577cf744b711e22f817ede6, type: 3}
 --- !u!114 &1980983578696582924
 MonoBehaviour:
   m_ObjectHideFlags: 0

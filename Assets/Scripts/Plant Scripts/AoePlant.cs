@@ -1,7 +1,6 @@
 using UnityEngine;
-using System.Collections.Generic;
 using System.Numerics;
-using Unity.VisualScripting;
+
 //detects in range 
 //attacks
 //set collider active around for every enemy around, do dmg
@@ -10,23 +9,6 @@ public class AoePlant : Plant
     float timeUntilFire;
     float fireRate;
     private float damage;
-    
-    private float attackRange;
-    private List<Enemy> inRange = new List<Enemy>();
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        // if not an enemy, ignore
-        if(!collision.CompareTag("Enemy")) return;
-        //grab enemy componenet
-        Enemy enemy = collision.GetComponent<Enemy>();
-        if (enemy == null) return;
-        //add to a list
-        
-        if (!inRange.Contains(enemy))
-        {
-            inRange.Add(enemy);
-        }
-    }
 
     void Attack()
     {
@@ -40,7 +22,7 @@ public class AoePlant : Plant
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, range/2);
     }
     void FiringActive()
     {
@@ -61,13 +43,13 @@ public class AoePlant : Plant
         // Apply the current stage's stats to this plant
         damage = stages[currentStageIndex].damage; //no sure i need this because the damage is already on the bullet lowkey...
         fireRate = stages[currentStageIndex].fireRate;
-        attackRange = stages[currentStageIndex].range;
+        range = stages[currentStageIndex].range;
 
         // Update the collider radius
         CircleCollider2D collider = GetComponentInChildren<CircleCollider2D>();
         if(collider != null)
         {
-            collider.radius = attackRange;
+            collider.gameObject.transform.localScale = new UnityEngine.Vector3(range, range, 1);
         }
 
     }

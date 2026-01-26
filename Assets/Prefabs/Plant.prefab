@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7822611648950826831}
   - component: {fileID: 3150247798635087554}
   - component: {fileID: 8380783399266080662}
+  - component: {fileID: 4954778123599080858}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -135,12 +136,24 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &4954778123599080858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5774861748817019565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde556e5b8f564049be091590d4662fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RangeDetection
 --- !u!1 &7315617497236404125
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,21 +278,21 @@ MonoBehaviour:
     sprite: {fileID: -206938103533024788, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
     damage: 0
     fireRate: 1
-    range: 1
+    range: 2.5
     projectilePrefab: {fileID: 1042915400390421904, guid: b360bedb0138a9d40bb0ca66c9ac3478, type: 3}
     growthRequired: 2
   - name: Stage2 Sunflower
     sprite: {fileID: -219615332215920082, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
     damage: 0
     fireRate: 0.5
-    range: 2
+    range: 3
     projectilePrefab: {fileID: 1042915400390421904, guid: b360bedb0138a9d40bb0ca66c9ac3478, type: 3}
     growthRequired: 2
   - name: stage3 sunflower
     sprite: {fileID: 2823567436213626749, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
     damage: 0
     fireRate: 0.25
-    range: 4
+    range: 3
     projectilePrefab: {fileID: 1042915400390421904, guid: b360bedb0138a9d40bb0ca66c9ac3478, type: 3}
     growthRequired: 2
   - name: stage4 sunfower
@@ -290,6 +303,7 @@ MonoBehaviour:
     projectilePrefab: {fileID: 1042915400390421904, guid: b360bedb0138a9d40bb0ca66c9ac3478, type: 3}
     growthRequired: 2
   growthProgress: 0
+  cost: 25
 --- !u!61 &3078999502850218696
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -306,7 +320,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
