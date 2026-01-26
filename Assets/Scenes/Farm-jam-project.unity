@@ -19680,7 +19680,7 @@ GameObject:
   - component: {fileID: 1808797945}
   - component: {fileID: 1808797944}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PlantSelectionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19698,6 +19698,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5b315b130d68848bbb85eb4abe192f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlantSelectionManager
+  selectedPlant: {fileID: 0}
+  plantLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &1808797945
 Transform:
   m_ObjectHideFlags: 0

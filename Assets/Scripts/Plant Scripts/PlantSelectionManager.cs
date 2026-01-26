@@ -4,6 +4,8 @@ public class PlantSelectionManager : MonoBehaviour
 {
     public static PlantSelectionManager instance;
     [SerializeField] private Plant selectedPlant;
+    [SerializeField] private LayerMask plantLayer;
+
     void Awake()
     {
         instance = this;
@@ -16,7 +18,7 @@ public class PlantSelectionManager : MonoBehaviour
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
         Vector2 rayPos = new Vector2(worldPos.x, worldPos.y);
 
-        RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.zero);
+        RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.zero, 0f, plantLayer);
 
         if (hit.collider != null)
         {

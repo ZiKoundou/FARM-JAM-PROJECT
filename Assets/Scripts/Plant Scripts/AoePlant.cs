@@ -64,7 +64,7 @@ public class AoePlant : Plant
         attackRange = stages[currentStageIndex].range;
 
         // Update the collider radius
-        CircleCollider2D collider = GetComponent<CircleCollider2D>();
+        CircleCollider2D collider = GetComponentInChildren<CircleCollider2D>();
         if(collider != null)
         {
             collider.radius = attackRange;

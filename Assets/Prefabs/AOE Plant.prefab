@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AOE Plant
       objectReference: {fileID: 0}
+    - target: {fileID: 7315617497236404125, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7832236092672571310, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7458001802600291317, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
     - target: {fileID: 7884533570840748349, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
       propertyPath: stages.Array.size
       value: 1
