@@ -22,7 +22,7 @@ public class PlantSelectionManager : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Plant plant = hit.collider.GetComponent<Plant>();
+            Plant plant = hit.collider.GetComponentInChildren<Plant>();
             if (plant != null)
             {
                 SelectPlant(plant);

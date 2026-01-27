@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
     {
         if(amount <= 0) return;
         currentHealth = Mathf.Max(currentHealth - amount, 0f);
-        // ShowFloatingText(amount);
+        ShowFloatingText(amount);
         OnDamaged?.Invoke();
 
         if (currentHealth <= 0f){
@@ -48,6 +48,6 @@ public class Health : MonoBehaviour
     void ShowFloatingText(float damageAmount){
 
         var go = Instantiate(FloatingTextPrefab,transform.position,Quaternion.identity);
-        // go.GetComponent<TextMeshPro>().text = "-" + damageAmount.ToString();
+        go.GetComponentInChildren<TextMeshProUGUI>().text = "-" + damageAmount.ToString();
     }
 }

@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        enemyHealth = GetComponent<EnemyHealth>();
+        enemyHealth = GetComponentInChildren<EnemyHealth>();
     }
 
     void Start()

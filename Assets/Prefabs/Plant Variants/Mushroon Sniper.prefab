@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1711674879404627425
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[0].range
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[1].range
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[2].range
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[3].range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: -8823046985786162121, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[1].sprite
+      value: 
+      objectReference: {fileID: -4926280853025028563, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 7506333631225930454, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[3].sprite
+      value: 
+      objectReference: {fileID: 6793664142506964247, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[0].fireRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[1].fireRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[2].fireRate
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[3].fireRate
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[0].projectilePrefab
+      value: 
+      objectReference: {fileID: 8860274371582235303, guid: d0141106f654d734bb4e00bcfe8b3848, type: 3}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[1].projectilePrefab
+      value: 
+      objectReference: {fileID: 8860274371582235303, guid: d0141106f654d734bb4e00bcfe8b3848, type: 3}
+    - target: {fileID: 77707478330390461, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: stages.Array.data[2].projectilePrefab
+      value: 
+      objectReference: {fileID: 8860274371582235303, guid: d0141106f654d734bb4e00bcfe8b3848, type: 3}
+    - target: {fileID: 566973270229927478, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8823046985786162121, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
+    - target: {fileID: 4569513321085723020, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569513321085723020, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569513321085723020, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569513321085723020, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569513321085723020, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569513321085723020, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569513321085723020, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569513321085723020, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569513321085723020, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569513321085723020, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315617497236404125, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}
+      propertyPath: m_Name
+      value: Mushroon Sniper
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b48d3cbab9cef344b9b3eb0811929f5, type: 3}

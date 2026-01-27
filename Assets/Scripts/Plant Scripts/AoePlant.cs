@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Numerics;
+using System.Collections;
+using UnityEngine.Animations;
 
 //detects in range 
 //attacks
@@ -9,14 +11,15 @@ public class AoePlant : Plant
     float timeUntilFire;
     float fireRate;
     private float damage;
-
+    [SerializeField] private GameObject hitEffect;
     void Attack()
     {
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, range);
+        StartCoroutine(ShowAoEEffect());
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.parent.position, range);
 
         foreach (Collider2D enemy in enemies)
         {
-            enemy.GetComponent<Health>()?.TakeDamage(damage);
+            enemy.GetComponentInChildren<Health>()?.TakeDamage(damage);
         }
     }
     void OnDrawGizmosSelected()
@@ -26,6 +29,7 @@ public class AoePlant : Plant
     }
     void FiringActive()
     {
+        
         timeUntilFire += Time.deltaTime;
         if (timeUntilFire > fireRate)
         {
@@ -58,6 +62,38 @@ public class AoePlant : Plant
         // Active 
         if(!isPlaced) return;
         FiringActive();
+    }
+
+    IEnumerator ShowAoEEffect()
+    {
+        if(hitEffect == null) yield break;
+
+        hitEffect.SetActive(true);
+        hitEffect.transform.localScale = new UnityEngine.Vector3(range, range, 1);
+
+        // quick scale-up / fade-out effect
+        float duration = 0.2f;
+        float elapsed = 0f;
+        UnityEngine.Vector3 initialScale = hitEffect.transform.localScale * 0.8f;
+        UnityEngine.Vector3 finalScale = hitEffect.transform.localScale;
+
+        SpriteRenderer sr = hitEffect.GetComponent<SpriteRenderer>();
+        Color initialColor = sr.color;
+        Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0);
+
+        while(elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            hitEffect.transform.localScale = UnityEngine.Vector3.Lerp(initialScale, finalScale, t);
+            sr.color = Color.Lerp(initialColor, targetColor, t);
+
+            yield return null;
+        }
+
+        sr.color = initialColor;
+        hitEffect.SetActive(false);
     }
 }
 

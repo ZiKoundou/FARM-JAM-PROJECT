@@ -29,7 +29,7 @@ public class PlantManager : MonoBehaviour
     public void PickSunFlower()
     {
         
-        if(CurrencyManager.instance.TryBuy(plants[0].GetComponent<Plant>().Cost) == false){
+        if(CurrencyManager.instance.TryBuy(plants[0].GetComponentInChildren<Plant>().Cost) == false){
             Debug.Log("Not enough currency to buy plant");
             return;
         }
@@ -39,11 +39,33 @@ public class PlantManager : MonoBehaviour
     }
     public void PickAoeFlower()
     {
-        if(CurrencyManager.instance.TryBuy(plants[1].GetComponent<Plant>().Cost) == false){
+        if(CurrencyManager.instance.TryBuy(plants[1].GetComponentInChildren<Plant>().Cost) == false){
             Debug.Log("Not enough currency to buy plant");
             return;
         }
         Instantiate(plants[1], spawnPos, Quaternion.identity);
+        // by default should be placing on instatiation
+    
+    }
+
+    public void PickMushroomFlower()
+    {
+        if(CurrencyManager.instance.TryBuy(plants[2].GetComponentInChildren<Plant>().Cost) == false){
+            Debug.Log("Not enough currency to buy plant");
+            return;
+        }
+        Instantiate(plants[2], spawnPos, Quaternion.identity);
+        // by default should be placing on instatiation
+    
+    }
+
+    public void PickFireFlower()
+    {
+        if(CurrencyManager.instance.TryBuy(plants[3].GetComponentInChildren<Plant>().Cost) == false){
+            Debug.Log("Not enough currency to buy plant");
+            return;
+        }
+        Instantiate(plants[3], spawnPos, Quaternion.identity);
         // by default should be placing on instatiation
     
     }

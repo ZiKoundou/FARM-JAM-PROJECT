@@ -11,6 +11,8 @@ public class WorldLight : MonoBehaviour
     private float _targetPercentage = 0f; // where the gradient should be (0-1)
     private float _currentPercentage = 0f; // current gradient position
     private bool _isTransitioning {get; set;} = false;
+    [SerializeField] private float dayIntensity = 1.2f;
+    [SerializeField] private float nightIntensity = 0.4f;
 
     private void Awake()
     {
@@ -26,12 +28,13 @@ public class WorldLight : MonoBehaviour
         {
             // Move currentPercentage toward targetPercentage smoothly
             _currentPercentage = Mathf.MoveTowards(_currentPercentage, _targetPercentage, Time.deltaTime / transitionDuration);
-            _light.color = gradient.Evaluate(_currentPercentage);
 
             // Stop transitioning if reached
             if (Mathf.Approximately(_currentPercentage, _targetPercentage))
                 _isTransitioning = false;
         }
+        _light.color = gradient.Evaluate(_currentPercentage);
+        _light.intensity = Mathf.Lerp(dayIntensity, nightIntensity, _currentPercentage);
     }
     public bool GetTransition()
     {

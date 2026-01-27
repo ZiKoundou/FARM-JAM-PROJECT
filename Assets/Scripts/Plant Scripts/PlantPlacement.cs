@@ -11,14 +11,14 @@ public class PlantPlacement : MonoBehaviour
     }
     PlacementState state;
     private Plant currentPlant;
-    private PlantSelection plantSelection;
+    // private PlantSelection plantSelection;
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         state = PlacementState.Placing;
-        currentPlant = GetComponent<Plant>();
-        plantSelection = GetComponentInChildren<PlantSelection>();
+        currentPlant = GetComponentInChildren<Plant>();
+        // plantSelection = GetComponentInChildren<PlantSelection>();
     }
 
     // Update is called once per frame

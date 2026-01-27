@@ -77,17 +77,17 @@ public class EnemySpawner : MonoBehaviour
                 PlantManager.instance.GrowAll();
                 //add gold
                 CurrencyManager.instance.EndOfRoundGold();
-                yield return new WaitForSeconds(0.5f);
+                
                 //change to daylight
                 WorldLight.instance.DayTransition();
-
+            
                 
             }
         }
     }
-    public void AutoPlay()
+    public void AutoPlay(bool toggle)
     {
-        if(autoPlay != true)
+        if(toggle)
         {
             autoPlay = true;
         }
