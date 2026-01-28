@@ -184,28 +184,28 @@ MonoBehaviour:
   stages:
   - name: Sprout
     sprite: {fileID: 7458001802600291317, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
-    damage: 1
+    damage: 10
     fireRate: 3
     range: 5
     projectilePrefab: {fileID: 0}
     growthRequired: 2
   - name: Sprout1
     sprite: {fileID: 8372327265145418095, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
-    damage: 2
+    damage: 20
     fireRate: 3
     range: 5
     projectilePrefab: {fileID: 0}
     growthRequired: 2
   - name: Sprout2
     sprite: {fileID: -9167543953973653990, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
-    damage: 3
+    damage: 25
     fireRate: 2.5
     range: 6
     projectilePrefab: {fileID: 0}
     growthRequired: 2
   - name: Flower->Branch
     sprite: {fileID: -5768183373572635722, guid: 0acb30dbeff05c047820ca3a23697023, type: 3}
-    damage: 4
+    damage: 40
     fireRate: 2
     range: 6
     projectilePrefab: {fileID: 0}

@@ -82,6 +82,7 @@ public abstract class Plant : MonoBehaviour
 
     public void OnPlaced()
     {
+        
         //if its already placed? ignore the placed stuff. not sure how this is gonna pan out scaling wise but well see?
         if(isPlaced) return;
         isPlaced = true;

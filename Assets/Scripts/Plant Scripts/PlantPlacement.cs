@@ -33,6 +33,8 @@ public class PlantPlacement : MonoBehaviour
                 // if u click
                 if (Mouse.current.leftButton.wasPressedThisFrame)// and check if valid
                 {
+                    AudioManager.instance.PlaySFX("PLACE");
+                    PlantSelectionManager.instance.DeselectPlant();
                     state = PlacementState.Placed;
 
                 }else if (Mouse.current.rightButton.wasPressedThisFrame)

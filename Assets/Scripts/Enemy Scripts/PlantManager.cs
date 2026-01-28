@@ -31,8 +31,12 @@ public class PlantManager : MonoBehaviour
         
         if(CurrencyManager.instance.TryBuy(plants[0].GetComponentInChildren<Plant>().Cost) == false){
             Debug.Log("Not enough currency to buy plant");
+            AudioManager.instance.PlaySFX("ERROR");
+
             return;
         }
+
+        AudioManager.instance.PlaySFX("CLICK");
         Instantiate(plants[0], spawnPos, Quaternion.identity);
         // by default should be placing on instatiation
     
@@ -41,8 +45,10 @@ public class PlantManager : MonoBehaviour
     {
         if(CurrencyManager.instance.TryBuy(plants[1].GetComponentInChildren<Plant>().Cost) == false){
             Debug.Log("Not enough currency to buy plant");
+            AudioManager.instance.PlaySFX("ERROR");
             return;
         }
+        AudioManager.instance.PlaySFX("CLICK");
         Instantiate(plants[1], spawnPos, Quaternion.identity);
         // by default should be placing on instatiation
     
@@ -52,8 +58,10 @@ public class PlantManager : MonoBehaviour
     {
         if(CurrencyManager.instance.TryBuy(plants[2].GetComponentInChildren<Plant>().Cost) == false){
             Debug.Log("Not enough currency to buy plant");
+            AudioManager.instance.PlaySFX("ERROR");
             return;
         }
+        AudioManager.instance.PlaySFX("CLICK");
         Instantiate(plants[2], spawnPos, Quaternion.identity);
         // by default should be placing on instatiation
     
@@ -63,8 +71,10 @@ public class PlantManager : MonoBehaviour
     {
         if(CurrencyManager.instance.TryBuy(plants[3].GetComponentInChildren<Plant>().Cost) == false){
             Debug.Log("Not enough currency to buy plant");
+            AudioManager.instance.PlaySFX("ERROR");
             return;
         }
+        AudioManager.instance.PlaySFX("CLICK");
         Instantiate(plants[3], spawnPos, Quaternion.identity);
         // by default should be placing on instatiation
     

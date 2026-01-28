@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5718436105509071072, guid: d0141106f654d734bb4e00bcfe8b3848, type: 3}
+      propertyPath: bulletDamage
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8860274371582235303, guid: d0141106f654d734bb4e00bcfe8b3848, type: 3}
       propertyPath: m_Name
       value: big mushroom bomb

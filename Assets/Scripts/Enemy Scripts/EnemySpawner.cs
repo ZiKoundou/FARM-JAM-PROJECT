@@ -54,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
                     if(autoPlay != true)
                     {
                         //wait until play is pressed
-                        yield return new WaitUntil(() => playWave);
+                        yield return new WaitUntil(() => playWave|| autoPlay);
                     }
                     //until playwave is true
                     //else just continue the next wave
@@ -73,6 +73,7 @@ public class EnemySpawner : MonoBehaviour
                     yield return new WaitForSeconds(waves[i].enemies[j].timeBetweenSpawns);
                 }
                 yield return new WaitUntil(() => enemiesRemaining <= 0);
+                AudioManager.instance.PlaySFX("WAVECLEARED");
                 //once enemies are defeated grow the plants
                 PlantManager.instance.GrowAll();
                 //add gold
@@ -101,6 +102,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void Play()
     {
+        AudioManager.instance.PlaySFX("CLICK");
         playWave = true;
     }
     // subscribes to the event on enemydied

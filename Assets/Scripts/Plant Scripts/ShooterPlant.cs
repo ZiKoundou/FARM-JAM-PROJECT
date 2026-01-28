@@ -13,6 +13,7 @@ public class ShooterPlant : Plant
     #region Shooting bullets
     public void Shoot(Enemy enemy)
     {
+        AudioManager.instance.PlaySFX("SHOOT");
         GameObject bulletObject =  Instantiate(projectilePrefab, gameObject.transform);
         Bullet bullet = bulletObject.GetComponent<Bullet>();
         if (bullet != null)

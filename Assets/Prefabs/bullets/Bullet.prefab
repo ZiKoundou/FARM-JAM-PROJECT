@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   bulletSpeed: 10
-  bulletDamage: 1
+  bulletDamage: 10
   target: {fileID: 0}
 --- !u!50 &8165940625444907146
 Rigidbody2D:

@@ -13,6 +13,7 @@ public class CurrencyManager : MonoBehaviour
 
     void Awake()
     {
+        AudioManager.instance.PlayMusic("CALM2");
         money = startingGold; 
         instance = this;
         UpdateUI();

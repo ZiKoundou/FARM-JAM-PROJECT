@@ -5,8 +5,8 @@ using TMPro;
 public class Health : MonoBehaviour
 {
     [Header("Health")]
-    [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float currentHealth;
+    [SerializeField] public float maxHealth = 100f;
+    [SerializeField] public float currentHealth;
     [SerializeField] GameObject FloatingTextPrefab;
     #region Events
     public event Action OnDamaged;
@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
     
     public void TakeDamage(float amount)
     {
+        AudioManager.instance.PlaySFX("HIT");
         if(amount <= 0) return;
         currentHealth = Mathf.Max(currentHealth - amount, 0f);
         ShowFloatingText(amount);
@@ -50,4 +51,5 @@ public class Health : MonoBehaviour
         var go = Instantiate(FloatingTextPrefab,transform.position,Quaternion.identity);
         go.GetComponentInChildren<TextMeshProUGUI>().text = "-" + damageAmount.ToString();
     }
+
 }

@@ -14,9 +14,10 @@ public class AoePlant : Plant
     [SerializeField] private GameObject hitEffect;
     void Attack()
     {
+        
         StartCoroutine(ShowAoEEffect());
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.parent.position, range);
-
+        AudioManager.instance.PlaySFX("SHOOT");
         foreach (Collider2D enemy in enemies)
         {
             enemy.GetComponentInChildren<Health>()?.TakeDamage(damage);
@@ -67,7 +68,7 @@ public class AoePlant : Plant
     IEnumerator ShowAoEEffect()
     {
         if(hitEffect == null) yield break;
-
+        
         hitEffect.SetActive(true);
         hitEffect.transform.localScale = new UnityEngine.Vector3(range, range, 1);
 
