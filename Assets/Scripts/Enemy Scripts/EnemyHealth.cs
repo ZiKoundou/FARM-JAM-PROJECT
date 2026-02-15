@@ -37,7 +37,9 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log("enemy death event");
         OnEnemyDeath?.Invoke();
         OnEnemyDeathUnity?.Invoke();
+        CurrencyManager.instance.AddMoney(1);
         Destroy(gameObject);
+        
     }
 
 }

@@ -41,21 +41,22 @@ public class EnemySpawner : MonoBehaviour
         {
             //iterate through each waves enemy info to ge the amount or whatever 
             Debug.Log("on wave: " + waves[i].waveName);
+            playWave = false;
             for (int j = 0; j <= waves[i].enemies.Length - 1; j++)
             {
                 
                 // spawn the next wave and set play back to 0
-                playWave = false;
-                enemiesRemaining = waves[i].enemies[j].count;
+                if(autoPlay != true)
+                {
+                    //wait until play is pressed
+                    yield return new WaitUntil(() => playWave|| autoPlay);
+                }
+                enemiesRemaining += waves[i].enemies[j].count;
                 //iterate and spawn the enemies in each wave
                 for (int k = 0; k < waves[i].enemies[j].count; k++)
                 {
                     // if autoplay is not on...
-                    if(autoPlay != true)
-                    {
-                        //wait until play is pressed
-                        yield return new WaitUntil(() => playWave|| autoPlay);
-                    }
+                    
                     //until playwave is true
                     //else just continue the next wave
                     WorldLight.instance.NightTransition();
@@ -71,19 +72,17 @@ public class EnemySpawner : MonoBehaviour
                     //spawn the enemy at that spawn point
                     Instantiate(waves[i].enemies[j].enemy, spawnPoint);
                     yield return new WaitForSeconds(waves[i].enemies[j].timeBetweenSpawns);
-                }
-                yield return new WaitUntil(() => enemiesRemaining <= 0);
-                AudioManager.instance.PlaySFX("WAVECLEARED");
-                //once enemies are defeated grow the plants
-                PlantManager.instance.GrowAll();
-                //add gold
-                CurrencyManager.instance.EndOfRoundGold();
-                
-                //change to daylight
-                WorldLight.instance.DayTransition();
-            
-                
+                } 
             }
+            yield return new WaitUntil(() => enemiesRemaining <= 0);
+            AudioManager.instance.PlaySFX("WAVECLEARED");
+            //once enemies are defeated grow the plants
+            PlantManager.instance.GrowAll();
+            //add gold
+            CurrencyManager.instance.EndOfRoundGold();
+            
+            //change to daylight
+            WorldLight.instance.DayTransition();
         }
     }
     public void AutoPlay(bool toggle)
